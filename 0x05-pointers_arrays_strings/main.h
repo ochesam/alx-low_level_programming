@@ -1,10 +1,8 @@
-#ifndef main.h
+#ifndef _HOLBERTON_H_
 
-#define main.h
+#define _HOLBERTON_H_
 
 
-
-int _putchar(char c);
 
 void reset_to_98(int *n);
 
@@ -13,6 +11,8 @@ void swap_int(int *a, int *b);
 int _strlen(char *s);
 
 void _puts(char *str);
+
+int _putchar(char);
 
 void print_rev(char *s);
 
@@ -30,4 +30,4 @@ int _atoi(char *s);
 
 
 
-#endif /* main.h */
+#endif
