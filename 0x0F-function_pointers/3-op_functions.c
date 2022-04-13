@@ -3,30 +3,67 @@
 #include <stdlib.h>
 
 /**
- * get_op_func - check if the operator is valid
- * @s: value input operator
+ * op_add - add two numbers
+ * @a: first number
+ * @b: second number
  *
  * Return: 0 if false, something else otherwise.
  */
-int (*get_op_func(char *s))(int, int)
+int op_add(int a, int b)
 {
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL}
-	};
-	int i;
-
-	i = 0;
-	while (i < 6)
+	return (a + b);
+}
+/**
+ * op_sub - sub two numbers
+ * @a: first number
+ * @b: second number
+ *
+ * Return: 0 if false, something else otherwise.
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+/**
+ * op_mul - mul two numbers
+ * @a: first number
+ * @b: second number
+ *
+ * Return: a * b
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+/**
+ * op_div - add two numbers
+ * @a: first number
+ * @b: second number
+ *
+ * Return: a / b.
+ */
+int op_div(int a, int b)
+{
+	if (b == 0)
 	{
-		if (ops[i].op[0] == s[0])
-			return (ops[i].f);
-	i++;
+		printf("Error\n");
+		exit(100);
 	}
-	printf("Error\n");
-	exit(99);
+	return (a / b);
+}
+/**
+ * op_mod - add two numbers
+ * @a: first number
+ * @b: second number
+ *
+ * Return: a % b.
+ */
+int op_mod(int a, int b)
+{
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	return (a % b);
 }
