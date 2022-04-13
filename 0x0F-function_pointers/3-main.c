@@ -1,51 +1,40 @@
-#include <stdio.h>
-#include "function_pointers.h"
-#include <stdlib.h>
-#include <string.h>
+#include "3-calc.h"
 
 /**
- * main - check the program
- * @argc: arguments cant
- * @argv: vector arguments
- * Return: 0 if false, something else otherwise.
+ * main - check the code for Holberton School students.
+ * @argc: argument count.
+ * @argv: argument vector.
+ *
+ * Return: Always 0.
  */
 int main(int argc, char *argv[])
 {
-	int (*get)(int, int);
-	int a, b, operator;
-
+	int a, b;
+	int (*operation)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (strlen(argv[2]) != 1)
+
+	if (argv[2][1])
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	operator = argv[2][0];
-	switch (operator)
+
+	operation = get_op_func(argv[2]);
+
+	if (operation == NULL)
 	{
-	case '+':
-		break;
-	case '-':
-		break;
-	case '*':
-		break;
-	case '/':
-		break;
-	case '%':
-		break;
-	default:
 		printf("Error\n");
 		exit(99);
 	}
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	get = get_op_func(argv[2]);
-	printf("%d\n", get(a, b));
+
+	printf("%d\n", operation(a, b));
 	return (0);
 }
